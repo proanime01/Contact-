@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ma Présentation</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Bonjour, je suis Aliou Sow</h1>
+    <img
+      src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDJ8fG1hbGUlMjBhZnJpY2FpbnxlbnwwfHx8fDE2NjI0NzY5NzM&ixlib=rb-1.2.1&q=80&w=1080"
+      alt="Photo de profil"
+      class="photo"
+    />
+    <h2>À propos de moi</h2>
+    <p class="animated">
+      Je suis passionné par le codage, les jeux vidéo et la technologie. J’apprends chaque jour de nouvelles compétences pour devenir développeur.
+    </p>
+    <h2>Me contacter</h2>
+    <button id="ouvrirPopup">Ouvrir le formulaire</button>
+    <h2>Ma vidéo préférée</h2>
+    <div class="video-container">
+      <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <div id="popup" class="popup">
+    <div class="popup-contenu">
+      <span id="fermerPopup" class="fermer">&times;</span>
+      <h3>Formulaire de contact</h3>
+      <form
+        action="https://formsubmit.co/proanime061231@gmail.com"
+        method="POST"
+        id="formulaire-contact"
+      >
+        <input type="text" name="nom" placeholder="Ton nom" required />
+        <input type="email" name="email" placeholder="Ton email" required />
+        <textarea name="message" placeholder="Ton message ici..." required></textarea>
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" name="_subject" value="Message depuis le portfolio" />
+        <input type="hidden" name="_template" value="table" />
+        <button type="submit">Envoyer</button>
+      </form>
+      <p id="confirmation">Merci pour ton message ✅</p>
+    </div>
+  </div>
+
+  <script>
+    const bouton = document.getElementById("ouvrirPopup");
+    const popup = document.getElementById("popup");
+    const fermer = document.getElementById("fermerPopup");
+    const formulaire = document.getElementById("formulaire-contact");
+    const confirmation = document.getElementById("confirmation");
+
+    bouton.onclick = () => {
+      popup.style.display = "block";
+    };
+    fermer.onclick = () => {
+      popup.style.display = "none";
+    };
+    window.onclick = (event) => {
+      if (event.target == popup) {
+        popup.style.display = "none";
+      }
+    };
+    formulaire.addEventListener("submit", () => {
+      confirmation.style.display = "block";
+    });
+  </script>
+</body>
+</html>
